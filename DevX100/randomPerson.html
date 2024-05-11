@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch</title>
+    <script>
+        async function foo(){
+            const response = await fetch("https://randomuser.me/api/");
+            const data = await response.json();
+            document.getElementsByTagName("h1")[0].innerText = JSON.stringify(data);
+        }
+    </script>
+</head>
+<body>
+    <h1></h1>
+    <button onclick="foo()">Click To Fetch API Response</button>    
+</body>
+</html>
