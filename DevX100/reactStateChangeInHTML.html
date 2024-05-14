@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>State Component rerendering working in HTML</title>
+</head>
+<body>
+  <div id="buttonparent">
+
+  </div>
+  <script>
+    let state = {
+      count: 0,
+    }
+    function onButtPress(){
+      state.count++;
+      stateChange();
+    }
+    function stateChange(){
+      const butPar = document.getElementById("buttonparent");
+      butPar.innerHTML = "";
+      const comp = renderButtonComponent(state.count);
+      butPar.appendChild(comp);
+    }
+    function renderButtonComponent(count){
+      const butchi = document.createElement("button");
+      butchi.innerHTML = `Counter is ${count}`;
+      butchi.setAttribute("onclick", "onButtPress()");
+      return butchi;
+    }
+    stateChange();
+  </script>
+</body>
+</html>
